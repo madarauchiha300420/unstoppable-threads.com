@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unstoppable Threads | Adaptive Fashion for People with Disabilities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --black: #121212;
+            --dark-black: #0a0a0a;
+            --light-black: #1e1e1e;
+            --dark-red: #8b0000;
+            --light-red: #a52a2a;
+            --accent: #d4af37;
+            --text: #e0e0e0;
+            --text-light: #f5f5f5;
+            --text-gray: #b0b0b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--black);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--dark-red);
+            margin-left: 5px;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            color: var(--dark-red);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--dark-red);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--text-gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--dark-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-red);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--dark-red);
+            margin-left: 15px;
+            color: var(--text-light);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--dark-red);
+            color: white;
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-dark {
+            background-color: var(--dark-black);
+            border-top: 1px solid rgba(139, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--dark-red);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: var(--text-gray);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(139, 0, 0, 0.2), transparent);
+            z-index: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Products Section */
+        .products {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .products:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--light-black);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border: 1px solid rgba(139, 0, 0, 0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--dark-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .product-info p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--text-light);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .product-price span {
+            color: var(--dark-red);
+            margin-left: 10px;
+            font-size: 16px;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        
+        .product-actions {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .product-actions button {
+            flex: 1;
+            padding: 8px;
+            background-color: transparent;
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-actions button i {
+            margin-right: 5px;
+        }
+        
+        .product-actions button:first-child {
+            border-radius: 4px 0 0 4px;
+            border-right: none;
+        }
+        
+        .product-actions button:last-child {
+            border-radius: 0 4px 4px 0;
+            border-left: none;
+        }
+        
+        .product-actions button:hover {
+            background-color: rgba(139, 0, 0, 0.1);
+            color: var(--dark-red);
+        }
+        
+        /* Features Section */
+        .features {
+            position: relative;
+        }
+        
+        .features:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light-black);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(139, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background-color: var(--dark-red);
+            transition: height 0.3s ease;
+        }
+        
+        .feature-card:hover:before {
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--dark-red);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .feature-card h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--dark-red);
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .feature-card p {
+            color: var(--text-gray);
+            margin-top: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            position: relative;
+        }
+        
+        .testimonials .section-title h2:after {
+            background: var(--dark-red);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            padding: 40px;
+            background-color: var(--light-black);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 1px solid rgba(139, 0, 0, 0.1);
+            margin: 0 20px;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .testimonial-text {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--text);
+            position: relative;
+        }
+        
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            color: var(--dark-red);
+            font-size: 30px;
+            opacity: 0.5;
+        }
+        
+        .testimonial-text:before {
+            margin-right: 5px;
+        }
+        
+        .testimonial-text:after {
+            margin-left: 5px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-red);
+        }
+        
+        .testimonial-position {
+            color: var(--text-gray);
+            font-size: 14px;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--light-black);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid var(--dark-red);
+        }
+        
+        .slider-dot.active {
+            background-color: var(--dark-red);
+            transform: scale(1.2);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .newsletter-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .newsletter h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            color: white;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-form input:focus {
+            border-color: var(--dark-red);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .newsletter-form button {
+            padding: 0 25px;
+            background-color: var(--dark-red);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--light-red);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-black);
+            padding: 80px 0 20px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--dark-red), transparent);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--dark-red);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-black);
+            color: var(--text);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--dark-red);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li a i {
+            margin-right: 8px;
+            font-size: 12px;
+            color: var(--dark-red);
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+        
+        .footer-bottom a {
+            color: var(--dark-red);
+            text-decoration: none;
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--dark-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--light-red);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 30px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 12px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-black);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .testimonial {
+                padding: 30px 20px;
+            }
+            
+            .testimonial-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-tshirt logo-icon"></i>
+                UNSTOPPABLE<span>THREADS</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#products"><i class="fas fa-shopping-bag"></i> Products</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Fashion Without Limits</h1>
+                <p>Innovative, adaptive clothing designed for individuals with disabilities. Functional, fashionable, and made to empower.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn">Shop Collection</a>
+                    <a href="#about" class="btn btn-outline">Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-dark" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+                <p>Redefining fashion for people with disabilities through innovative design and uncompromising style</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Empowering Through Adaptive Fashion</h3>
+                    <p>Founded by Mr. Diwakar Kumar, Unstoppable Threads was born from a vision to create clothing that adapts to people, not the other way around. We believe that true style knows no boundaries.</p>
+                    <p>Fashion is a powerful form of self-expression, and everyone—regardless of ability—deserves to look and feel their best. That's why we've created a clothing brand specifically designed for individuals with disabilities.</p>
+                    <p>Our mission is simple: to break the barriers of traditional fashion and empower people with disabilities to wear clothes that fit their needs without compromising on style.</p>
+                    <a href="#products" class="btn" style="margin-top: 20px;">Explore Collection</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Unstoppable Threads founder and team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Collection</h2>
+                <p>Thoughtfully designed adaptive clothing that combines functionality with high fashion</p>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Adaptive Shirt">
+                    </div>
+                    <div class="product-info">
+                        <h3>Easy-Wear Shirt</h3>
+                        <p>Front-opening shirt with magnetic closures for effortless dressing</p>
+                        <div class="product-price">₹1,299 <span>₹1,599</span></div>
+                        <div class="product-actions">
+                            <button><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button><i class="fas fa-heart"></i> Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Adaptive Pants">
+                    </div>
+                    <div class="product-info">
+                        <h3>Side-Opening Trousers</h3>
+                        <p>Adjustable waistband and side zippers for comfortable wear</p>
+                        <div class="product-price">₹1,799 <span>₹2,199</span></div>
+                        <div class="product-actions">
+                            <button><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button><i class="fas fa-heart"></i> Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">Bestseller</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Adaptive Jacket">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wrap-Around Jacket</h3>
+                        <p>Versatile jacket with multiple fastening options</p>
+                        <div class="product-price">₹2,499 <span>₹2,999</span></div>
+                        <div class="product-actions">
+                            <button><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button><i class="fas fa-heart"></i> Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Adaptive Dress">
+                    </div>
+                    <div class="product-info">
+                        <h3>Adaptive Dress</h3>
+                        <p>Elegant dress with back access for wheelchair users</p>
+                        <div class="product-price">₹3,299 <span>₹3,799</span></div>
+                        <div class="product-actions">
+                            <button><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button><i class="fas fa-heart"></i> Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features section-dark" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>We combine innovative design with premium quality to create clothing that makes a difference</p>
+            </div>
+            <div class="feature-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tshirt"></i></div>
+                    <h3>Adaptive Design</h3>
+                    <p>Our clothing features innovative designs with magnetic closures, adjustable openings, and easy-access features that make dressing effortless.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-medal"></i></div>
+                    <h3>Premium Quality</h3>
+                    <p>We use only the finest fabrics that are durable, comfortable, and easy to care for, ensuring our clothing lasts through daily wear.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Inclusive Sizing</h3>
+                    <p>We offer a wide range of sizes and customizable options to accommodate different body types and specific mobility needs.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Sustainable Practices</h3>
+                    <p>We're committed to ethical production, using eco-friendly materials and minimizing waste throughout our manufacturing process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from people whose lives we've changed through adaptive fashion</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">For the first time in years, I can dress myself without assistance. Unstoppable Threads has given me back my independence and confidence.</p>
+                    <p class="testimonial-author">Rahul Sharma</p>
+                    <p class="testimonial-position">Wheelchair User, Mumbai</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">The quality and thoughtfulness in the design is incredible. I finally feel fashionable in clothes that work with my body, not against it.</p>
+                    <p class="testimonial-author">Priya Patel</p>
+                    <p class="testimonial-position">Amputee, Delhi</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">As a parent of a child with disabilities, finding stylish clothes that are also functional was nearly impossible - until we found Unstoppable Threads.</p>
+                    <p class="testimonial-author">Arjun Mehta</p>
+                    <p class="testimonial-position">Parent, Bangalore</p>
+                </div>
+            </div>
+            <div class
